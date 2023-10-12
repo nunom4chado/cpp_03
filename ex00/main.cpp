@@ -6,11 +6,12 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 18:53:51 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/11 21:59:51 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/12 12:22:17 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include <iostream>
 
 int main( void ) {
     ClapTrap a;

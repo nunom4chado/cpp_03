@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 18:53:51 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/12 17:42:53 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/16 00:11:10 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,20 @@
 #include "ScavTrap.hpp"
 #include <iostream>
 
-int main( void ) {
-    ScavTrap a("GU4RD-TP");
+using std::cout;
+using std::endl;
 
-    a.guardGate();
-    a.attack("Handsome Jack");
-    std::cout << a.getName() << " has " << a.getEnergy() << " energy" << std::endl;
+int main(void) {
+    ScavTrap first("GU4RD-TP");
 
-    ScavTrap b;
-    
+    first.guardGate();
+    first.attack("Handsome Jack");
+    cout << first.getName() << " has " << first.getEnergy() << " energy"
+         << endl;
+
+    cout << "--------------------------------------------------" << endl;
+
+    ScavTrap second = first;
 
     return 0;
 }

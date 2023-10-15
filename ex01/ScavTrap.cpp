@@ -6,49 +6,90 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:55:16 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/12 14:52:14 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/16 00:30:59 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "ScavTrap.hpp"
+#include "colors.hpp"
+#include <iostream>
+
+using std::cout;
+using std::endl;
+using std::string;
+
+/* -------------------------------------------------------------------------- */
+/*                              Static Attributes                             */
+/* -------------------------------------------------------------------------- */
+const unsigned int ScavTrap::_defaultHitPoints = 100;
+const unsigned int ScavTrap::_defaultEnergyPoints = 50;
+const unsigned int ScavTrap::_defaultAttackDmg = 20;
 
 /* -------------------------------------------------------------------------- */
 /*                         Constructers & Desctructer                         */
 /* -------------------------------------------------------------------------- */
-ScavTrap::ScavTrap( void ): ClapTrap("SC4V-TP") {
-    this->_hitPoints = 100;
-    this->_energyPoints = 50;
-    this->_attackDmg = 20;
+ScavTrap::ScavTrap(void) : ClapTrap("SC4V-TP") {
+    this->_hitPoints = ScavTrap::_defaultHitPoints;
+    this->_energyPoints = ScavTrap::_defaultEnergyPoints;
+    this->_attackDmg = ScavTrap::_defaultAttackDmg;
 
-    std::cout << "ScavTrap " << this->_name << " spawned" << std::endl;
+    cout << BLUE << "[ScavTrap Default Constructer]: " << this->_name
+         << " spawned" << RESET << endl;
 }
 
-ScavTrap::ScavTrap( std::string name ): ClapTrap(name) {
-    this->_hitPoints = 100;
-    this->_energyPoints = 50;
-    this->_attackDmg = 20;
+ScavTrap::ScavTrap(string name) : ClapTrap(name) {
+    this->_hitPoints = ScavTrap::_defaultHitPoints;
+    this->_energyPoints = ScavTrap::_defaultEnergyPoints;
+    this->_attackDmg = ScavTrap::_defaultAttackDmg;
 
-    std::cout << "ScavTrap " << this->_name << " spawned" << std::endl;
+    cout << BLUE << "[ScavTrap Parametric Constructer]: " << this->_name
+         << " spawned" << RESET << endl;
 }
 
-ScavTrap::~ScavTrap( void ) {
-    std::cout << "ScavTrap " << this->_name << " was destroyed" << std::endl;
+ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src) {
+    cout << BLUE << "[ScavTrap Copy Constructer]: ScavTrap " << src._name
+         << " copied" << RESET << endl;
+    *this = src;
+}
+
+ScavTrap::~ScavTrap(void) {
+    cout << BLUE << "[ScavTrap Destructer]: " << this->_name << " was destroyed"
+         << RESET << endl;
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                   Others                                   */
+/*                             Operator Overloads                             */
 /* -------------------------------------------------------------------------- */
-void ScavTrap::attack( const std::string& target ) {
+ScavTrap &ScavTrap::operator=(const ScavTrap &rhs) {
+    cout << BLUE << "[ScavTrap Assignment Operator]: rhs name is " << rhs._name
+         << RESET << endl;
+    if (this != &rhs) {
+        this->_name = rhs._name;
+        this->_hitPoints = rhs._hitPoints;
+        this->_energyPoints = rhs._energyPoints;
+        this->_attackDmg = rhs._attackDmg;
+    }
 
-    if (this->_energyPoints) {
-        this->_energyPoints--;
-        std::cout << "ScavTrap " << this->_name << " attacks " << target
-        << ", causing " << this->_attackDmg << " points of damage!" << std::endl;
-    } else
-        std::cout << "ScavTrap " << this->_name << " is out of energy" << std::endl;
+    return *this;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           Other Member Functions                           */
+/* -------------------------------------------------------------------------- */
+void ScavTrap::attack(const string &target) {
+    if (this->_energyPoints == 0) {
+        cout << BLUE << "ScavTrap " << this->_name << " is out of energy"
+             << RESET << endl;
+        return;
+    }
+
+    this->_energyPoints--;
+    cout << BLUE << "ScavTrap " << this->_name << " attacks " << target
+         << ", causing " << this->_attackDmg << " points of damage!" << RESET
+         << endl;
 }
 
 void ScavTrap::guardGate() {
-    std::cout << "ScavTrap " << this->_name << " is now in Gate Keeper mode!" << std::endl;
+    cout << BLUE << "ScavTrap " << this->_name << " is now in Gate Keeper mode!"
+         << RESET << endl;
 }

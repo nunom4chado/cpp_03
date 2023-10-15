@@ -47,4 +47,4 @@ lint:
 
 # ------------------------------- END OF RULES ------------------------------- #
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re format lint

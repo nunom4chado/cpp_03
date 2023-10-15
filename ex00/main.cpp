@@ -6,45 +6,54 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 18:53:51 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/12 17:42:53 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/15 16:45:14 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include <iostream>
 
-int main( void ) {
-    ClapTrap a;
-    ClapTrap b("SL4CK-TP");
+using std::cout;
+using std::endl;
 
-    ClapTrap c(b);
-    std::cout << c.getName() << std::endl;
-    
-    a.attack("Handsome Jack");
-    a.attack("Handsome Jack");
-    a.attack("Handsome Jack");
-    a.attack("Handsome Jack");
-    a.attack("Handsome Jack");
-    a.attack("Handsome Jack");
-    a.attack("Handsome Jack");
-    a.attack("Handsome Jack");
-    a.attack("Handsome Jack");
-    a.attack(b.getName());
-    a.attack("Handsome Jack");
+int main(void) {
+    ClapTrap first;
+    ClapTrap second("SL4CK-TP");
 
-    std::cout << a.getName() << " has " << a.getEnergy() << " energy left" << std::endl;
+    ClapTrap third = second;
+    cout << "ClapTrap c name: " << third.getName()
+         << ", Claptrap b name:" << second.getName() << endl;
 
-    a.takeDamage(4);
-    a.takeDamage(10);
-    a.takeDamage(10);
-    a.takeDamage(10);
-    std::cout << a.getName() << " hp is " << a.getHp() << std::endl;
-    
-    a.beRepaired(24);
-    std::cout << a.getName() << " hp is " << a.getHp() << std::endl;
+    cout << "--------------------------------------------------" << endl;
 
-    c = a;
-    std::cout << c.getName() << " hp is " << c.getHp() << std::endl;
-    
+    first.attack("Handsome Jack");
+    first.attack(second.getName());
+    cout << first.getName() << " has " << first.getEnergy() << " energy left"
+         << endl;
+
+    first.setEnergy(0);
+    first.attack("Handsome Jack"); // out of energy
+    cout << first.getName() << " has " << first.getEnergy() << " energy left"
+         << endl;
+
+    cout << "--------------------------------------------------" << endl;
+
+    first.takeDamage(4);  // NOLINT
+    first.takeDamage(10); // dies here // NOLINT
+    first.takeDamage(10); // will not print because its dead // NOLINT
+    first.takeDamage(10); // will not print because its dead // NOLINT
+    cout << first.getName() << " hp is " << first.getHp() << endl;
+
+    first.beRepaired(24); // NOLINT
+    cout << first.getName() << " hp is " << first.getHp() << endl;
+
+    cout << "--------------------------------------------------" << endl;
+
+    third = first;
+    cout << third.getName() << " hp is " << third.getHp() << endl;
+    third.takeDamage(4); // will not print because he's dead // NOLINT
+
+    cout << "--------------------------------------------------" << endl;
+
     return 0;
 }

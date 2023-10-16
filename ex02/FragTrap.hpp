@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:11:26 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/16 00:36:16 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/16 15:39:51 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define FRAGTRAP_CLASS_H
 
 #include "ClapTrap.hpp"
-#include <iostream>
+#include <string>
 
 class FragTrap : public ClapTrap {
   public:

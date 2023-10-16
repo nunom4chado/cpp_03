@@ -6,50 +6,48 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:44:39 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/12 12:04:11 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/16 15:37:14 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_CLASS_H
-# define CLAPTRAP_CLASS_H
+#define CLAPTRAP_CLASS_H
 
-# include <iostream>
+#include <string>
 
 class ClapTrap {
-    public:
-        /* ----------------------- Constructers & Desctructer ----------------------- */
-        ClapTrap( void ); // canonical
-        ClapTrap( std::string name );
-        ClapTrap( ClapTrap const & src ); // canonical
-        ~ClapTrap( void ); // canonical
+  public:
+    ClapTrap();                    // Default Constructer (Canonical)
+    ClapTrap(std::string name);    // Parametric Constructer
+    ClapTrap(const ClapTrap &src); // Copy Constructer (Canonical)
+    ~ClapTrap();                   // Destructer (Canonical)
 
-        /* --------------------------- Operator Overloads --------------------------- */
-        ClapTrap & operator=( ClapTrap const & rhs ); // canonical
+    ClapTrap &operator=(const ClapTrap &rhs); // Assignment Operator (Canonical)
 
-        /* -------------------------------- Accessors ------------------------------- */
-        std::string getName( void ) const;
-        void        setName( std::string name );
+    // Accessors
+    std::string getName(void) const;
+    void setName(std::string name);
+    unsigned int getHp(void) const;
+    void setHitPoints(unsigned int hitPoints);
+    unsigned int getEnergy(void) const;
+    void setEnergy(unsigned int energy);
+    unsigned int getAttackDmg(void) const;
+    void setAttackDmg(unsigned int dmg);
 
-        int     getHp( void ) const;
-        void    setHp( unsigned int hp );
+    // Other Member Functions
+    void attack(const std::string &target);
+    void takeDamage(unsigned int amount);
+    void beRepaired(unsigned int amount);
 
-        int     getEnergy( void ) const;
-        void    setEnergy( unsigned int energy );
+  protected:
+    std::string _name;          // NOLINT
+    unsigned int _hitPoints;    // NOLINT
+    unsigned int _energyPoints; // NOLINT
+    unsigned int _attackDmg;    // NOLINT
 
-        int     getAttackDmg( void ) const;
-        void    setAttackDmg( unsigned int dmg );
-
-        /* --------------------------------- Others --------------------------------- */
-        void attack( const std::string& target );
-        void takeDamage( unsigned int amount );
-        void beRepaired( unsigned int amount );
-
-    protected:
-        std::string _name;
-        unsigned int _hitPoints;
-        unsigned int _energyPoints;
-        unsigned int _attackDmg;
-
+    static const unsigned int _defaultHitPoints;
+    static const unsigned int _defaultEnergyPoints;
+    static const unsigned int _defaultAttackDmg;
 };
 
 #endif

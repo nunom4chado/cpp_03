@@ -6,27 +6,42 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 18:53:51 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/13 22:38:36 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/16 16:31:12 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 #include <iostream>
 
-int main( void ) {
-    DiamondTrap a("D-TP");
+using std::cout;
+using std::endl;
 
-    
+int main(void) {
+    DiamondTrap first("D-TP");
 
-    std::cout << a.getName() << " has " << a.getEnergy() << std::endl;
-    a.attack("Handsome Jack");
-    a.whoAmI();
+    cout << first.getName() << " has " << first.getEnergy() << endl;
+    first.attack("Handsome Jack");
+    first.whoAmI();
 
-    DiamondTrap b(a);
-    std::cout << b.getName() << " has " << b.getEnergy() << std::endl;
-    b.attack("someone");
-    b.whoAmI();
+    cout << "--------------------------------------------------" << endl;
 
-    
+    DiamondTrap second(first);
+    cout << second.getName() << " has " << second.getEnergy() << endl;
+    second.attack("someone");
+    second.whoAmI();
+
+    cout << "--------------------------------------------------" << endl;
+
+    cout << "Create ScavTrap from DiamondTrap" << endl;
+    ScavTrap third(first); // NOLINT
+
+    cout << "Create FragTrap from DiamondTrap" << endl;
+    FragTrap fourth(first); // NOLINT
+
+    cout << "Create ClapTrap from DiamondTrap" << endl;
+    ClapTrap fifth(first); // NOLINT
+
+    cout << "--------------------------------------------------" << endl;
+
     return 0;
 }

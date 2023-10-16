@@ -38,4 +38,19 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+# ---------------------------------------------------------------------------- #
+#                                 FORMAT RULES                                 #
+# ---------------------------------------------------------------------------- #
+format:
+	clang-format -style=file -i ${SRCS} ${HEADERS}
+
+# ---------------------------------------------------------------------------- #
+#                                 LINTER RULES                                 #
+# ---------------------------------------------------------------------------- #
+lint:
+	clang-tidy ${HEADERS} -checks=-*,cppcoreguidelines-*,readability-*
+	clang-tidy ${SRCS} -checks=-*,cppcoreguidelines-*,readability-*
+
+# ------------------------------- END OF RULES ------------------------------- #
+
+.PHONY: all clean fclean re format lint

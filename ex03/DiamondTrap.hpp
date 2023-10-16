@@ -6,33 +6,33 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:23:04 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/12 17:58:43 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/16 16:01:34 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIAMONDTRAP_CLASS_H
-# define DIAMONDTRAP_CLASS_H
+#define DIAMONDTRAP_CLASS_H
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
-#include <iostream>
+#include <string>
 
-class DiamondTrap: public FragTrap, public ScavTrap {
-    public:
-        /* ----------------------- Constructers & Desctructer ----------------------- */
-        DiamondTrap( void );
-        DiamondTrap( std::string name );
-        ~DiamondTrap( void );
+class DiamondTrap : public FragTrap, public ScavTrap {
+  public:
+    DiamondTrap();                       // Default Constructer (Canonical)
+    DiamondTrap(std::string name);       // Parametric Constructer
+    DiamondTrap(const DiamondTrap &src); // Copy Constructer (Canonical)
+    ~DiamondTrap();                      // Destructer (Canonical)
 
-        /* --------------------------- Operator Overloads --------------------------- */
-        DiamondTrap & operator=( DiamondTrap const & rhs ); // canonical
+    // Assignment Operator (Canonical)
+    DiamondTrap &operator=(const DiamondTrap &rhs);
 
-        /* --------------------------------- Others --------------------------------- */
-        using   ScavTrap::attack;
-        void    whoAmI();
+    // Other Member Functions
+    using ScavTrap::attack;
+    void whoAmI();
 
-    private:
-        std::string _name;
+  private:
+    std::string _name;
 };
 
 #endif

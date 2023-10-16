@@ -6,39 +6,77 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:13:21 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/12 17:29:44 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/16 00:41:49 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "FragTrap.hpp"
+#include "colors.hpp"
+#include <iostream>
+
+using std::cout;
+using std::endl;
+using std::string;
+
+/* -------------------------------------------------------------------------- */
+/*                              Static Attributes                             */
+/* -------------------------------------------------------------------------- */
+const unsigned int FragTrap::_defaultHitPoints = 100;
+const unsigned int FragTrap::_defaultEnergyPoints = 100;
+const unsigned int FragTrap::_defaultAttackDmg = 20;
 
 /* -------------------------------------------------------------------------- */
 /*                         Constructers & Desctructer                         */
 /* -------------------------------------------------------------------------- */
-FragTrap::FragTrap( void ): ClapTrap("FR4G-TP") {
-    this->_hitPoints = 100;
-    this->_energyPoints = 100;
-    this->_attackDmg = 20;
+FragTrap::FragTrap(void) : ClapTrap("FR4G-TP") {
+    this->_hitPoints = FragTrap::_defaultHitPoints;
+    this->_energyPoints = FragTrap::_defaultEnergyPoints;
+    this->_attackDmg = FragTrap::_defaultAttackDmg;
 
-    std::cout << "FragTrap " << this->_name << " spawned" << std::endl;
+    cout << GREEN << "[FragTrap Default Constructer]: " << this->_name
+         << " spawned" << RESET << endl;
 }
 
-FragTrap::FragTrap( std::string name ): ClapTrap(name) {
-    this->_hitPoints = 100;
-    this->_energyPoints = 100;
-    this->_attackDmg = 20;
+FragTrap::FragTrap(std::string name) : ClapTrap(name) {
+    this->_hitPoints = FragTrap::_defaultHitPoints;
+    this->_energyPoints = FragTrap::_defaultEnergyPoints;
+    this->_attackDmg = FragTrap::_defaultAttackDmg;
 
-    std::cout << "FragTrap " << this->_name << " spawned" << std::endl;
+    cout << GREEN << "[FragTrap Parametric Constructer]: " << this->_name
+         << " spawned" << RESET << endl;
 }
 
-FragTrap::~FragTrap( void ) {
-    std::cout << "FragTrap " << this->_name << " was destroyed" << std::endl;
+FragTrap::FragTrap(const FragTrap &src) : ClapTrap(src) {
+    cout << GREEN << "[FragTrap Copy Constructer]: FragTrap " << src._name
+         << " copied" << RESET << endl;
+    *this = src;
+}
+
+FragTrap::~FragTrap(void) {
+    cout << GREEN << "[FragTrap Destructer]: " << this->_name
+         << " was destroyed" << RESET << endl;
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                   Others                                   */
+/*                             Operator Overloads                             */
+/* -------------------------------------------------------------------------- */
+FragTrap &FragTrap::operator=(const FragTrap &rhs) {
+    cout << GREEN << "[FragTrap Assignment Operator]: rhs name is " << rhs._name
+         << RESET << endl;
+    if (this != &rhs) {
+        this->_name = rhs._name;
+        this->_hitPoints = rhs._hitPoints;
+        this->_energyPoints = rhs._energyPoints;
+        this->_attackDmg = rhs._attackDmg;
+    }
+
+    return *this;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           Other Member Functions                           */
 /* -------------------------------------------------------------------------- */
 void FragTrap::highFivesGuys(void) {
-    std::cout << "FragTrap " << this->_name << " gives a high five!!" << std::endl;
+    cout << GREEN << "FragTrap " << this->_name << " gives a high five!!"
+         << RESET << endl;
 }

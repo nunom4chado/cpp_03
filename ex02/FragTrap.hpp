@@ -6,24 +6,32 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:11:26 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/12 15:13:05 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/16 00:36:16 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_CLASS_H
-# define FRAGTRAP_CLASS_H
+#define FRAGTRAP_CLASS_H
 
 #include "ClapTrap.hpp"
 #include <iostream>
 
-class FragTrap: public ClapTrap {
-    public:
-        FragTrap( void );
-        FragTrap( std::string name );
-        ~FragTrap( void );
+class FragTrap : public ClapTrap {
+  public:
+    FragTrap();                    // Default Constructer (Canonical)
+    FragTrap(std::string name);    // Parametric Constructer
+    FragTrap(const FragTrap &src); // Copy Constructer (Canonical)
+    ~FragTrap();                   // Destructer (Canonical)
 
-        /* --------------------------------- Others --------------------------------- */
-        void highFivesGuys(void);
+    FragTrap &operator=(const FragTrap &rhs); // Assignment Operator (Canonical)
+
+    // Other Member Functions
+    void highFivesGuys(void);
+
+  protected:
+    static const unsigned int _defaultHitPoints;
+    static const unsigned int _defaultEnergyPoints;
+    static const unsigned int _defaultAttackDmg;
 };
 
 #endif

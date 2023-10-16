@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:13:21 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/16 15:37:27 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/16 17:07:52 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ using std::string;
 /* -------------------------------------------------------------------------- */
 const unsigned int FragTrap::_defaultHitPoints = 100;
 const unsigned int FragTrap::_defaultEnergyPoints = 100;
-const unsigned int FragTrap::_defaultAttackDmg = 20;
+const unsigned int FragTrap::_defaultAttackDmg = 30;
 
 /* -------------------------------------------------------------------------- */
 /*                         Constructers & Desctructer                         */

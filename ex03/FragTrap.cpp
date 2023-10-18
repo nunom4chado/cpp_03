@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:13:21 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/16 17:07:52 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/18 18:35:53 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,26 @@ using std::string;
 /* -------------------------------------------------------------------------- */
 /*                              Static Attributes                             */
 /* -------------------------------------------------------------------------- */
-const unsigned int FragTrap::_defaultHitPoints = 100;
-const unsigned int FragTrap::_defaultEnergyPoints = 100;
-const unsigned int FragTrap::_defaultAttackDmg = 30;
+const unsigned int FragTrap::defaultHitPoints = 100;
+const unsigned int FragTrap::defaultEnergyPoints = 100;
+const unsigned int FragTrap::defaultAttackDmg = 30;
 
 /* -------------------------------------------------------------------------- */
 /*                         Constructers & Desctructer                         */
 /* -------------------------------------------------------------------------- */
 FragTrap::FragTrap(void) : ClapTrap("FR4G-TP") {
-    this->_hitPoints = FragTrap::_defaultHitPoints;
-    this->_energyPoints = FragTrap::_defaultEnergyPoints;
-    this->_attackDmg = FragTrap::_defaultAttackDmg;
+    this->_hitPoints = FragTrap::defaultHitPoints;
+    this->_energyPoints = FragTrap::defaultEnergyPoints;
+    this->_attackDmg = FragTrap::defaultAttackDmg;
 
     cout << GREEN << "[FragTrap Default Constructer]: " << this->_name
          << " spawned" << RESET << endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
-    this->_hitPoints = FragTrap::_defaultHitPoints;
-    this->_energyPoints = FragTrap::_defaultEnergyPoints;
-    this->_attackDmg = FragTrap::_defaultAttackDmg;
+    this->_hitPoints = FragTrap::defaultHitPoints;
+    this->_energyPoints = FragTrap::defaultEnergyPoints;
+    this->_attackDmg = FragTrap::defaultAttackDmg;
 
     cout << GREEN << "[FragTrap Parametric Constructer]: " << this->_name
          << " spawned" << RESET << endl;

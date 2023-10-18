@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:55:16 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/16 15:38:11 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/18 18:35:53 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,26 @@ using std::string;
 /* -------------------------------------------------------------------------- */
 /*                              Static Attributes                             */
 /* -------------------------------------------------------------------------- */
-const unsigned int ScavTrap::_defaultHitPoints = 100;
-const unsigned int ScavTrap::_defaultEnergyPoints = 50;
-const unsigned int ScavTrap::_defaultAttackDmg = 20;
+const unsigned int ScavTrap::defaultHitPoints = 100;
+const unsigned int ScavTrap::defaultEnergyPoints = 50;
+const unsigned int ScavTrap::defaultAttackDmg = 20;
 
 /* -------------------------------------------------------------------------- */
 /*                         Constructers & Desctructer                         */
 /* -------------------------------------------------------------------------- */
 ScavTrap::ScavTrap(void) : ClapTrap("SC4V-TP") {
-    this->_hitPoints = ScavTrap::_defaultHitPoints;
-    this->_energyPoints = ScavTrap::_defaultEnergyPoints;
-    this->_attackDmg = ScavTrap::_defaultAttackDmg;
+    this->_hitPoints = ScavTrap::defaultHitPoints;
+    this->_energyPoints = ScavTrap::defaultEnergyPoints;
+    this->_attackDmg = ScavTrap::defaultAttackDmg;
 
     cout << BLUE << "[ScavTrap Default Constructer]: " << this->_name
          << " spawned" << RESET << endl;
 }
 
 ScavTrap::ScavTrap(string name) : ClapTrap(name) {
-    this->_hitPoints = ScavTrap::_defaultHitPoints;
-    this->_energyPoints = ScavTrap::_defaultEnergyPoints;
-    this->_attackDmg = ScavTrap::_defaultAttackDmg;
+    this->_hitPoints = ScavTrap::defaultHitPoints;
+    this->_energyPoints = ScavTrap::defaultEnergyPoints;
+    this->_attackDmg = ScavTrap::defaultAttackDmg;
 
     cout << BLUE << "[ScavTrap Parametric Constructer]: " << this->_name
          << " spawned" << RESET << endl;

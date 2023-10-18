@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 10:39:23 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/16 15:44:37 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/18 18:35:53 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,9 @@ class ScavTrap : virtual public ClapTrap {
     void attack(const std::string &target);
     void guardGate();
 
-  protected:
-    static const unsigned int _defaultHitPoints;
-    static const unsigned int _defaultEnergyPoints;
-    static const unsigned int _defaultAttackDmg;
+    static const unsigned int defaultHitPoints;
+    static const unsigned int defaultEnergyPoints;
+    static const unsigned int defaultAttackDmg;
 };
 
 #endif

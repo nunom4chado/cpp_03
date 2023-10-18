@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:59:50 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/16 16:34:55 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/18 18:35:53 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,30 @@ using std::string;
 /* -------------------------------------------------------------------------- */
 /*                              Static Attributes                             */
 /* -------------------------------------------------------------------------- */
-const unsigned int ClapTrap::_defaultHitPoints = 10;
-const unsigned int ClapTrap::_defaultEnergyPoints = 10;
-const unsigned int ClapTrap::_defaultAttackDmg = 0;
+const unsigned int ClapTrap::defaultHitPoints = 10;
+const unsigned int ClapTrap::defaultEnergyPoints = 10;
+const unsigned int ClapTrap::defaultAttackDmg = 0;
 
 /* -------------------------------------------------------------------------- */
 /*                         Constructers & Desctructer                         */
 /* -------------------------------------------------------------------------- */
 ClapTrap::ClapTrap()
-    : _name("CL4P-TP"), _hitPoints(_defaultHitPoints),
-      _energyPoints(_defaultEnergyPoints), _attackDmg(_defaultAttackDmg) {
+    : _name("CL4P-TP"), _hitPoints(defaultHitPoints),
+      _energyPoints(defaultEnergyPoints), _attackDmg(defaultAttackDmg) {
     cout << YELLOW << "[ClapTrap Default Constructer]: " << this->_name
          << " spawned" << RESET << endl;
 }
 
 ClapTrap::ClapTrap(string name)
-    : _name(name), _hitPoints(_defaultHitPoints),
-      _energyPoints(_defaultEnergyPoints), _attackDmg(_defaultAttackDmg) {
+    : _name(name), _hitPoints(defaultHitPoints),
+      _energyPoints(defaultEnergyPoints), _attackDmg(defaultAttackDmg) {
     cout << YELLOW << "[ClapTrap Parametric Constructer]: " << this->_name
          << " spawned" << RESET << endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &src)
-    : _name("CL4P-TP"), _hitPoints(_defaultHitPoints),
-      _energyPoints(_defaultEnergyPoints), _attackDmg(_defaultAttackDmg) {
+    : _name("CL4P-TP"), _hitPoints(defaultHitPoints),
+      _energyPoints(defaultEnergyPoints), _attackDmg(defaultAttackDmg) {
     cout << YELLOW << "[ClapTrap Copy Constructer]: ClapTrap " << src._name
          << " copied" << RESET << endl;
     *this = src;

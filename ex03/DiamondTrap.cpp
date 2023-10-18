@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:23:14 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/16 16:34:06 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/18 18:35:53 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ using std::string;
 /* -------------------------------------------------------------------------- */
 DiamondTrap::DiamondTrap(void)
     : ClapTrap("D14M0ND-TP_clap_name"), _name("D14M0ND-TP") {
-    this->_hitPoints = FragTrap::_hitPoints;
-    this->_energyPoints = ScavTrap::_energyPoints;
-    this->_attackDmg = FragTrap::_attackDmg;
+    this->_hitPoints = FragTrap::defaultHitPoints;
+    this->_energyPoints = ScavTrap::defaultEnergyPoints;
+    this->_attackDmg = FragTrap::defaultAttackDmg;
 
     cout << CYAN << "[DiamondTrap Default Constructer]: " << this->_name
          << " spawned" << RESET << endl;
@@ -37,9 +37,9 @@ DiamondTrap::DiamondTrap(void)
 DiamondTrap::DiamondTrap(std::string name)
     : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name),
       _name(name) {
-    this->_hitPoints = FragTrap::_hitPoints;
-    this->_energyPoints = ScavTrap::_energyPoints;
-    this->_attackDmg = FragTrap::_attackDmg;
+    this->_hitPoints = FragTrap::defaultHitPoints;
+    this->_energyPoints = ScavTrap::defaultEnergyPoints;
+    this->_attackDmg = FragTrap::defaultAttackDmg;
 
     cout << CYAN << "[DiamondTrap Parametric Constructer]: " << this->_name
          << " spawned" << RESET << endl;

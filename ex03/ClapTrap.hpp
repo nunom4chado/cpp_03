@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:44:39 by numartin          #+#    #+#             */
-/*   Updated: 2023/10/16 15:37:14 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/18 18:35:53 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ class ClapTrap {
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
 
+    static const unsigned int defaultHitPoints;
+    static const unsigned int defaultEnergyPoints;
+    static const unsigned int defaultAttackDmg;
+
   protected:
     std::string _name;          // NOLINT
     unsigned int _hitPoints;    // NOLINT
     unsigned int _energyPoints; // NOLINT
     unsigned int _attackDmg;    // NOLINT
-
-    static const unsigned int _defaultHitPoints;
-    static const unsigned int _defaultEnergyPoints;
-    static const unsigned int _defaultAttackDmg;
 };
 
 #endif
